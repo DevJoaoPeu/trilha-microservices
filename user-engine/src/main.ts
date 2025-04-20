@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { Logger } from '@nestjs/common';
 
 const logger = new Logger('Main');
 
@@ -21,6 +22,7 @@ async function bootstrap() {
       },
     },
   );
-  await app.listen(() => Logger.log('user-engine is running'));
+  await app.listen();
+  logger.log('Microservice is listening');
 }
 bootstrap();
