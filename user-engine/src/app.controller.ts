@@ -21,4 +21,9 @@ export class AppController {
 
     return this.appService.create(data);
   }
+
+  @MessagePattern('find-one-user')
+  async findOne(@Payload() id: string): Promise<UserDto> {
+    return await this.appService.findOne(+id);
+  }
 }
